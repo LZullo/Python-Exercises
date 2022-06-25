@@ -4,4 +4,4 @@ Some of the exercises I did in Python to continue learning and advancing in the 
 
 Collab link:https://colab.research.google.com/drive/1mcSG4IOUvEpuzqTQGAYf0gQjoAFluUcO?usp=sharing#scrollTo=C7miAEVehiZE
 
-Codewars: https://www.codewars.com/users/LZullo/completed_solutions
+Codewars: https://www.codewars.com/users/LZullo
