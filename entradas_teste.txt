@@ -1,0 +1,36 @@
+Observação: 
+
+Entrada: {"pessoa": {"nome": "Alice Johnson", "cpf": "33333333333", "renda": 5000.00}, "score": {"pontuacao": 800, "fonte": "serasa"}, "imovel": {"valor": 200000.00}, "entrada": 7000.00}
+
+Saída:
+{
+  "cpf": "33333333333",
+  "status": "reprovado-parcialmente",
+  "constraints": [
+    "entrada-insuficiente"
+  ]
+}
+----------------------------------------------------
+Requisito adicional:
+    Caso a constrains apresente "reprovado e reprovado-parcialmente", o status é "reprovado".
+    
+----------------------------------------------------
+Entradas teste:
+
+Caso de aprovação:
+{"pessoa": {"nome": "John Doe", "cpf": "12345678901", "renda": 3000.00}, "score": {"pontuacao": 600, "fonte": "serasa"}, "imovel": {"valor": 500000.00}, "entrada": 100000.00}
+
+Caso de reprovação devido ao score:
+{"pessoa": {"nome": "Jane Doe", "cpf": "98765432109", "renda": 4000.00}, "score": {"pontuacao": 400, "fonte": "serasa"}, "imovel": {"valor": 300000.00}, "entrada": 60000.00}
+
+Caso de reprovação devido à renda:
+{"pessoa": {"nome": "Bob Smith", "cpf": "55555555555", "renda": 1500.00}, "score": {"pontuacao": 700, "fonte": "serasa"}, "imovel": {"valor": 400000.00}, "entrada": 80000.00}
+
+Caso de reprovação parcial devido à entrada:
+{"pessoa": {"nome": "Alice Johnson", "cpf": "33333333333", "renda": 5000.00}, "score": {"pontuacao": 800, "fonte": "serasa"}, "imovel": {"valor": 200000.00}, "entrada": 7000.00}
+
+Caso de reprovação total devido à entrada:
+{"pessoa": {"nome": "Charlie Brown", "cpf": "44444444444", "renda": 8000.00}, "score": {"pontuacao": 900, "fonte": "serasa"}, "imovel": {"valor": 300000.00}, "entrada": 14000.00}
+
+Caso de reprovação e reprovação-parcialmente:
+{"pessoa": {"nome": "Teste", "cpf": "12345678900", "renda": 1000.00}, "score": {"pontuacao": 450, "fonte": "serasa"}, "imovel": {"valor": 20000.00}, "entrada": 1000.00}
