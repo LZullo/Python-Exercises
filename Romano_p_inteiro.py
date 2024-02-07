@@ -11,20 +11,22 @@
 # X pode ser colocado antes de L(50) e C(100) para formar 40 e 90.
 # C pode ser colocado antes de D(500) e M(1000) para perfazer 400 e 900.
 
-s="LVIII"
+def roman_to_int(roman):
+    roman_values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    
+    total = 0
+    prev_value = 0
+    
+    for char in reversed(roman):
+        current_value = roman_values[char]
+        if current_value >= prev_value:
+            total += current_value
+        else:
+            total -= current_value
+        prev_value = current_value
+    
+    return total
 
-def romanToInt(s):
-  translations = {
-      "I": 1, "V": 5, "D": 500,
-      "X": 10,"L": 50, "C": 100,
-      "M": 1000
-  }
-  number = 0
-  s = s.replace("IV", "IIII").replace("IX", "VIIII")
-  s = s.replace("XL", "XXXX").replace("XC", "LXXXX")
-  s = s.replace("CD", "CCCC").replace("CM", "DCCCC")
-  for char in s:
-      number += translations[char]
-  return number
-
-print(romanToInt(s))
+roman_number = "MMCMXLIX"
+decimal_number = roman_to_int(roman_number)
+print(f'O número decimal correspondente a {roman_number} é: {decimal_number}')

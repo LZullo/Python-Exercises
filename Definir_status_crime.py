@@ -23,13 +23,13 @@ while (op ==1):
   lista.append(int(input("Mora perto da vítima? 1- SIM ou 0-NAO : ")))
   lista.append(int(input("Devia para a vítima? 1- SIM ou 0-NAO : " )))
   lista.append(int(input("Já trabalhou com a vítima? 1- SIM ou 0-NAO : " )))
-  if (sum(lista) <2):
-   print("\n Pessoa Inocente \n")
-  elif (sum(lista) == 2):
-      print("\n Pessoa Suspeita \n")
-  elif ( 3 <=sum(lista)<= 4 ):
-      print("\n Pessoa Cúmplice \n")
+  if sum(lista) < 2:
+        print("\n Pessoa Inocente\n")
+  elif sum(lista) == 2:
+        print("\n Pessoa Suspeita\n")
+  elif sum(lista) in [3, 4]:
+        print("\n Pessoa Cúmplice\n")
   else:
-      print("\n Pessoa Assassino \n ")
+        print("\n Pessoa Assassino\n")
   op = int(input("Deseja Interrogar outra Pessoa ? 1- SIM ou 2 - NAO :"))
 print("\n")

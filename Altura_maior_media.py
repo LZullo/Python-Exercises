@@ -3,21 +3,22 @@
 #-----------
 #Make a Program that reads the ages and heights of 10 students and determines how many students over 13 are taller 
 #than the average height of those students.
+from statistics import mean
 
-def media():
-  vetor_aluno=[]
-  sum_altura=0
-  qtd=0
-  for i in range(3):
-      idade	= int(input('Digite a idade do aluno:'))
-      altura	= float(input('Digite a altura do aluno:'))
-      sum_altura += altura
-      if idade>13:
-        vetor_aluno.append(altura)
-  sum_altura=sum_altura/3
-  for i in vetor_aluno:
-    if i<sum_altura:
-      qtd +=1
-  return qtd
+def alunos_abaixo_media():
+    total_alunos = 10
+    alturas = []
 
-print(media())
+    for _ in range(total_alunos):
+        idade = int(input('Digite a idade do aluno:'))
+        altura = float(input('Digite a altura do aluno:'))
+        alturas.append(altura)
+
+    media_alturas = mean(alturas)
+
+    alunos_abaixo_media = sum(1 for altura in alturas if idade > 13 and altura < media_alturas)
+
+    return alunos_abaixo_media
+
+print(alunos_abaixo_media())
+

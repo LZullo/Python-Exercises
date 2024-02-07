@@ -7,18 +7,23 @@
 #and in which month they occurred (show the month in full: 1 January, 2 – February, . . . ).
 
 def listar_meses(lista, mediaAnual, listaMes):
-    print("Meses com temperaturas acima da media:\n")
-    for j,n in enumerate(lista):
-        if (lista[j] >= mediaAnual):
-            print(j+1, ' - ', listaMes[j],'Temperatura: %0.2f '%lista[j])
+    print("Meses com temperaturas acima da média:\n")
+    for mes, temperatura in zip(listaMes, lista):
+        if temperatura >= mediaAnual:
+            print(f'{mes}: Temperatura: {temperatura:.2f}')
 
 def media_temp():
     lista = []
-    listaMes=['Janeiro','Fevereiro', 'Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
-    for i in range(1,13):
-        temp = float (input("Digite a Temperatura do Mes_%d : " %i))
+    listaMes = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+
+    for i in range(1, 13):
+        temp = float(input(f"Digite a Temperatura do Mês_{i}: "))
         lista.append(temp)
-    mediaAnual = sum(lista)/len(lista)
-    print("Temperatura Média Anual:",mediaAnual)
+
+    mediaAnual = sum(lista) / len(lista)
+    print("Temperatura Média Anual:", mediaAnual)
     listar_meses(lista, mediaAnual, listaMes)
+
+media_temp()
+
 

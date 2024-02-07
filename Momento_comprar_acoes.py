@@ -11,17 +11,18 @@
 # Entrada: preços = [7,6,4,3,1]
 # Saída: 0
 # Explicação: Neste caso, nenhuma transação é feita e o lucro máximo = 0.
-
-prices= [7,1,5,3,6,4]
+prices = [7, 1, 5, 3, 6, 4]
 
 def maxProfit(prices):
-  comprar=prices[0]
-  lucro=0
-  for i in prices:
-    if i < comprar:
-      comprar = i
-    elif lucro < (i-comprar):
-      lucro=i-comprar
-  return lucro
+    comprar = float('inf')
+    lucro = 0
+
+    for i in prices:
+        if i < comprar:
+            comprar = i
+        elif i - comprar > lucro:
+            lucro = i - comprar
+
+    return lucro
 
 print(maxProfit(prices))

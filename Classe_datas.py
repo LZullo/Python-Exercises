@@ -12,41 +12,34 @@
 #d. provide the str method to return a string representation of the date. Consider that a must be formatted showing the day, month and year separated by a slash (/);
 #e. provide an operation to advance a date to the next day.
 
-from datetime import datetime
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 class Data:
     def __init__(self, dia=0, mes=0, ano=0):
-        if dia == 0:
-            dia = datetime.today().day
-        self.__dia = dia
-        if mes == 0:
-            mes = datetime.today().month
-        self.__mes = mes
-        if ano == 0:
-            ano = datetime.today().year
-        self.__ano = ano
+        today = datetime.today().date()
+        self.__dia = dia if dia != 0 else today.day
+        self.__mes = mes if mes != 0 else today.month
+        self.__ano = ano if ano != 0 else today.year
 
     def __str__(self):
-        return '{}/{}/{}'.format(self.__dia,self.__mes,self.__ano)
+        return '{}/{}/{}'.format(self.__dia, self.__mes, self.__ano)
 
     def dia_seguinte(self):
-        date = datetime(self.__ano, self.__mes, self.__dia, 0, 0, 0) + timedelta(days=1)
-        self.__dia = date.day
-        self.__mes = date.month
-        self.__ano = date.year
+        self.__dia += 1
+        date = datetime(self.__ano, self.__mes, self.__dia) + timedelta(days=0)
+        self.__dia, self.__mes, self.__ano = date.day, date.month, date.year
 
-data = Data() #hoje
-print("Data atual = ", data)
+data = Data()  # hoje
+print("Data atual =", data)
 data.dia_seguinte()
-print("Dia seguinte = ", data)
+print("Dia seguinte =", data)
 
 data = Data(30, 11, 2021)
-print("Data fim do mês = ", data)
+print("Data fim do mês =", data)
 data.dia_seguinte()
-print("Dia seguinte = ", data)
+print("Dia seguinte =", data)
 
 data = Data(31, 12, 2021)
-print("Data no fim do ano = ",data)
+print("Data no fim do ano =", data)
 data.dia_seguinte()
-print("Dia seguinte = ", data)
+print("Dia seguinte =", data)
